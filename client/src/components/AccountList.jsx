@@ -1,5 +1,5 @@
 function AccountList() {
-  return <main>AccountList</main>
+  return <div>AccountList</div>
 }
 
 export default AccountList;

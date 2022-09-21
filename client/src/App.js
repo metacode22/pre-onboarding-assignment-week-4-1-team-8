@@ -1,6 +1,6 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import { AccountList, Layout, UserList } from './components';
-import { Login } from './pages';
+import { Layout } from './components';
+import { Accounts, Login, Users } from './pages';
 
 function App() {
   return (
@@ -8,8 +8,8 @@ function App() {
       <Routes>
         <Route path="/" element={<Login />} />
         <Route path="/admin" element={<Layout />}>
-          <Route path="account" element={<AccountList />} />
-          <Route path="user" element={<UserList />} />
+          <Route path="account" element={<Accounts />} />
+          <Route path="user" element={<Users />} />
         </Route>
       </Routes>
     </BrowserRouter>
