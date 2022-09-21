@@ -1,8 +1,9 @@
+import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
-import { ACCESS_TOKEN, ADMIN } from '../consts';
+import { ACCESS_TOKEN, ADMIN, FOOTER } from '../consts';
 import { signin } from '../lib/apis';
-import { setStorageItem } from '../lib/util';
+import { getStorageItem, setStorageItem } from '../lib/util';
 
 function Login() {
   const navigate = useNavigate();
@@ -24,6 +25,10 @@ function Login() {
       console.error(error);
     }
   };
+
+  useEffect(() => {
+    if (getStorageItem(ACCESS_TOKEN)) navigate(ADMIN);
+  }, []);
 
   return (
     <Wrap>
@@ -51,7 +56,7 @@ function Login() {
           <button type="submit">로그인</button>
         </Form>
       </ContentWrap>
-      <Footer>Copyright © December and Company Inc.</Footer>
+      <Footer>{FOOTER}</Footer>
     </Wrap>
   );
 }

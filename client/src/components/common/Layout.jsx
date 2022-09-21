@@ -32,6 +32,17 @@ function Layout() {
 
 export default Layout;
 
-const OuterWrap = styled.div``;
+const OuterWrap = styled.div`
+  width: 100vw;
+  height: 100vh;
+  
+  display: grid;
+  grid-template-columns: 0.5fr 2fr;
+`;
 
-const InnerWrap = styled.div``;
+const InnerWrap = styled.div`
+  width: 100%;
+
+  display: grid;
+  grid-template-rows: 80px 1fr 80px;
+`;
