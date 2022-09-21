@@ -19,7 +19,7 @@ function Login() {
       const {
         data: { accessToken },
       } = result;
-      await setStorageItem(ACCESS_TOKEN, accessToken);
+      setStorageItem(ACCESS_TOKEN, accessToken);
       navigate(ADMIN);
     } catch (error) {
       console.error(error);
