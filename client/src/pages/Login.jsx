@@ -1,28 +1,50 @@
+import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
+import { ACCESS_TOKEN, ADMIN } from '../consts';
+import { signin } from '../lib/apis';
+import { setStorageItem } from '../lib/util';
 
 function Login() {
   const navigate = useNavigate();
 
-  const onSubmit = event => {
+  const handleSubmit = async event => {
     event.preventDefault();
-    
-    navigate('/admin');
+    const { emailField, passwordField } = event.currentTarget;
+    const email = emailField.value;
+    const password = passwordField.value;
+
+    try {
+      const result = await signin(email, password);
+      const {
+        data: { accessToken },
+      } = result;
+      await setStorageItem(ACCESS_TOKEN, accessToken);
+      navigate(ADMIN);
+    } catch (error) {
+      console.error(error);
+    }
   };
 
   return (
     <Wrap>
       <ContentWrap>
         <h1>로그인</h1>
-        <Form onSubmit={onSubmit}>
+        <Form onSubmit={handleSubmit}>
           <label>
             <p>ID</p>
-            <input type="email" placeholder="manager@admin.com" required></input>
+            <input
+              type="email"
+              name="emailField"
+              placeholder="manager@admin.com"
+              required
+            ></input>
           </label>
           <label>
             <p>Password</p>
             <input
               type="password"
+              name="passwordField"
               placeholder="12345678!@"
               required
             ></input>
