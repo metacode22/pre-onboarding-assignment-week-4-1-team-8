@@ -1,7 +1,5 @@
 import axios from 'axios';
-import { BASE_URL, HTTP_METHODS } from '../../consts/api';
-import { ACCESS_TOKEN } from '../../consts/storage';
-import { getStorageItem } from '../util';
+import { HTTP_METHODS } from '../../consts/api';
 
 const axiosInstance = axios.create({});
 

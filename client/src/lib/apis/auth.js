@@ -5,6 +5,5 @@ export const signin = (email, password) => {
   return http.post({
     url: LOGIN,
     data: { email, password },
-    headers: {},
   });
 };

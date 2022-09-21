@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 function Accounts() {
-  return <Wrap></Wrap>;
+  return <Wrap>Accounts</Wrap>;
 }
 
 export default Accounts;

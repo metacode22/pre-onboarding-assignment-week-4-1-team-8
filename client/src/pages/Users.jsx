@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 function Users() {
-  return <Wrap></Wrap>;
+  return <Wrap>Users</Wrap>;
 }
 
 export default Users;
