@@ -1,12 +1,15 @@
 import styled from 'styled-components';
-import { useSelector } from 'react-redux';
+import useGetCurrentPageName from '../../hooks/useGetCurrentPageName';
+import { ACCOUNT, ACCOUNT_LIST, USER_LIST } from '../../consts';
 
 function Header() {
-  const currentPageName = useSelector(state => state.currentPageName);
+  const currentPageName = useGetCurrentPageName();
 
   return (
     <Wrap>
-      <PageName>{currentPageName}</PageName>
+      <PageName>
+        {currentPageName === ACCOUNT ? ACCOUNT_LIST : USER_LIST}
+      </PageName>
       <AdminUserName>Admin User</AdminUserName>
     </Wrap>
   );

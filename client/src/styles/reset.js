@@ -131,6 +131,9 @@ const reset = css`
     border-collapse: collapse;
     border-spacing: 0;
   }
+  .active {
+    background-color: blue;
+  }
 `;
 
 export default reset;

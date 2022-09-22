@@ -1,18 +1,13 @@
-import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 import { ACCESS_TOKEN } from '../../consts';
 import { removeStorageItem } from '../../lib/util';
-import { setPageName } from '../../store/currentPageName';
 
 function Logout() {
   const navigate = useNavigate();
 
-  const dispatch = useDispatch();
-
   const handleButtonClick = () => {
     removeStorageItem(ACCESS_TOKEN);
-    dispatch(setPageName(''));
     navigate('/');
   };
 

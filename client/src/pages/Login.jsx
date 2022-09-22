@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
-import { ACCESS_TOKEN, ADMIN, FOOTER } from '../consts';
+import { ACCESS_TOKEN, ACCOUNT, ADMIN, FOOTER } from '../consts';
 import { signin } from '../lib/apis';
 import { getStorageItem, setStorageItem } from '../lib/util';
 
@@ -20,14 +20,14 @@ function Login() {
         data: { accessToken },
       } = result;
       setStorageItem(ACCESS_TOKEN, accessToken);
-      navigate(ADMIN);
+      navigate(ACCOUNT);
     } catch (error) {
       console.error(error);
     }
   };
 
   useEffect(() => {
-    if (getStorageItem(ACCESS_TOKEN)) navigate(ADMIN);
+    if (getStorageItem(ACCESS_TOKEN)) navigate(ACCOUNT);
   }, []);
 
   return (
