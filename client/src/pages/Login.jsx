@@ -4,6 +4,7 @@ import styled from 'styled-components';
 import { ACCESS_TOKEN, ACCOUNT, ADMIN, FOOTER } from '../consts';
 import { signin } from '../lib/apis';
 import { getStorageItem, setStorageItem } from '../lib/util';
+import { palette } from '../styles';
 
 function Login() {
   const navigate = useNavigate();
@@ -77,7 +78,7 @@ const ContentWrap = styled.div`
   width: 520px;
   height: 390px;
   padding: 24px;
-  border: 1px solid #e2e5e6;
+  border: 1px solid ${palette.shallowGray};
   border-radius: 16px;
 `;
 

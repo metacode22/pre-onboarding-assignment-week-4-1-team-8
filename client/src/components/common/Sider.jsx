@@ -2,7 +2,7 @@ import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 import { ACCOUNT, ACCOUNT_LIST, USER, USER_LIST } from '../../consts';
 import useGetCurrentPageName from '../../hooks/useGetCurrentPageName';
-
+import { palette } from '../../styles';
 import Logout from './Logout';
 
 function Sider() {
@@ -44,13 +44,14 @@ const ButtonWrap = styled.div`
   border: 1px solid black;
   height: 3em;
   cursor: pointer;
-  background-color: ${props => (props.active ? 'skyblue' : 'white')};
+  background-color: ${props =>
+    props.active ? palette.skyblue : palette.white};
 
   display: flex;
   justify-content: center;
   align-items: center;
 
   :hover {
-    background-color: ${props => !props.active && '#e2e5e6'};
+    background-color: ${props => !props.active && palette.shallowGray};
   }
 `;

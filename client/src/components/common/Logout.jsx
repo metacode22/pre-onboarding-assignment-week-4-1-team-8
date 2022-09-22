@@ -2,6 +2,7 @@ import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 import { ACCESS_TOKEN } from '../../consts';
 import { removeStorageItem } from '../../lib/util';
+import { palette } from '../../styles';
 
 function Logout() {
   const navigate = useNavigate();
@@ -26,6 +27,6 @@ const Wrap = styled.div`
   align-items: center;
 
   :hover {
-    background-color: #e2e5e6;
+    background-color: ${palette.shallowGray};
   }
 `;

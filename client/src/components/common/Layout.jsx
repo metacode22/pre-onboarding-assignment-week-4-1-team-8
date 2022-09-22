@@ -44,5 +44,5 @@ const InnerWrap = styled.div`
   width: 100%;
 
   display: grid;
-  grid-template-rows: 80px 1fr 80px;
+  grid-template-rows: 80px calc(100vh - 160px) 80px;
 `;
