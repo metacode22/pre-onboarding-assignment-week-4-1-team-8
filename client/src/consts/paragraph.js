@@ -1,1 +1,1 @@
-export const FOOTER = 'Copyright © December and Company Inc.'
+export const FOOTER = 'Copyright © December and Company Inc.';

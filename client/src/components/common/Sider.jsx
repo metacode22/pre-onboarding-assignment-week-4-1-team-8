@@ -1,17 +1,35 @@
+import { useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
+import { ACCOUNT, ACCOUNT_LIST, ADMIN, USER, USER_LIST } from '../../consts';
+import { setPageName } from '../../store/currentPageName';
+
 import Logout from './Logout';
 
 function Sider() {
-  
-  const handleButtonClick = () => {
-    
-  }
-  
+  const navigate = useNavigate();
+
+  const dispatch = useDispatch();
+
+  const handleButtonClick = (event, pageName) => {
+    event.target.classList.add('active');
+    console.log(event.target.classList);
+    dispatch(setPageName(pageName));
+
+    pageName === ACCOUNT_LIST
+      ? navigate(`${ADMIN}/${ACCOUNT}`)
+      : navigate(`${ADMIN}/${USER}`);
+  };
+
   return (
     <Wrap>
       <div>Logo</div>
-      <ButtonWrap>계좌 목록</ButtonWrap>
-      <ButtonWrap>사용자</ButtonWrap>
+      <ButtonWrap onClick={event => handleButtonClick(event, ACCOUNT_LIST)}>
+        {ACCOUNT_LIST}
+      </ButtonWrap>
+      <ButtonWrap onClick={event => handleButtonClick(event, USER_LIST)}>
+        {USER_LIST}
+      </ButtonWrap>
       <Logout />
     </Wrap>
   );
@@ -32,7 +50,7 @@ const ButtonWrap = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  
+
   :hover {
     background-color: #e2e5e6;
   }
