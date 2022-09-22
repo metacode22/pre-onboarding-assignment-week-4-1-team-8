@@ -1,10 +1,30 @@
 import axios from 'axios';
 import { HTTP_METHODS } from '../../consts/api';
+import { ACCESS_TOKEN } from '../../consts/storage';
+import { getStorageItem } from '../util/storage';
 
-const axiosInstance = axios.create({});
+const axiosInstance = axios.create({
+  headers: {
+    'Content-Type': 'application/json',
+  },
+});
+
+const handleRequest = config => {
+  const token = getStorageItem(ACCESS_TOKEN);
+
+  return token
+    ? {
+        ...config,
+        headers: {
+          ...config.headers,
+          Authorization: `Bearer ${token}`,
+        },
+      }
+    : config;
+};
 
 const createApiMethod = (axiosInstance, methodType) => config => {
-  return axiosInstance({ ...config, method: methodType });
+  return axiosInstance({ ...handleRequest(config), method: methodType });
 };
 
 const http = {

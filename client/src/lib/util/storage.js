@@ -1,6 +1,6 @@
 export const getStorageItem = key => {
   try {
-    return localStorage.getItem(key);
+    return JSON.parse(localStorage.getItem(key));
   } catch (error) {
     console.error(error);
   }
