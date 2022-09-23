@@ -8,3 +8,4 @@ export const HTTP_METHODS = {
 export const LOGIN = '/login';
 export const ACCOUNTS = '/accounts';
 export const USERS = '/users';
+export const USER_SETTING = '/userSetting';

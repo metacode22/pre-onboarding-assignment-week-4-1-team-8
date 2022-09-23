@@ -14,12 +14,12 @@ function Users() {
   const [totalPage, setTotalPage] = useState(0);
 
   useEffect(() => {
-    const fetchTotalPage = async () => {
+    const fetchTotalPage = async (INITIAL_LIMIT) => {
       const totalPageFromFetch = await getTotalPage(INITIAL_LIMIT);
       setTotalPage(totalPageFromFetch);
     };
 
-    fetchTotalPage();
+    fetchTotalPage(INITIAL_LIMIT);
   }, [data]);
 
   useEffect(() => {
@@ -44,6 +44,7 @@ function Users() {
 export default Users;
 
 const Wrap = styled.div`
+  width: 100%;
   position: relative;
   overflow-y: scroll;
 `;

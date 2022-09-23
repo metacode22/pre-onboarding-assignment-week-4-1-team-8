@@ -37,11 +37,9 @@ export default Sider;
 
 const Wrap = styled.aside`
   width: 100%;
-  border: 1px solid black;
 `;
 
 const ButtonWrap = styled.div`
-  border: 1px solid black;
   height: 3em;
   cursor: pointer;
   background-color: ${props =>

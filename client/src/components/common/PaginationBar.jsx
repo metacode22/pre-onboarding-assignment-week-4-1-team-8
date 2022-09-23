@@ -23,10 +23,8 @@ function PaginationBar({ totalPage, currentPage, setCurrentPage }) {
 export default PaginationBar;
 
 const Wrap = styled.div`
-  position: absolute;
+  position: sticky;
   bottom: 5%;
-  left: 50%;
-  transform: translate(-50%, -50%);
 
   display: flex;
   justify-content: center;

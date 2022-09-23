@@ -25,7 +25,7 @@ const Wrap = styled.div`
   border-radius: 4px;
   line-height: 32px;
   text-align: center;
-  background-color: ${props => props.active && palette.skyblue};
+  background-color: ${props => props.active ? palette.skyblue : palette.white};
 
   :hover {
     background-color: ${props => !props.active && palette.shallowGray};

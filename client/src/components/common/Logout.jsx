@@ -18,7 +18,6 @@ function Logout() {
 export default Logout;
 
 const Wrap = styled.div`
-  border: 1px solid black;
   height: 3em;
   cursor: pointer;
 
