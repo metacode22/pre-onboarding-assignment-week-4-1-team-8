@@ -5,3 +5,4 @@ export { default as Footer } from './Footer';
 export { default as Logout } from './Logout';
 export { default as PaginationBar } from './PaginationBar';
 export { default as PageButton } from './PageButton';
+export { default as Search } from './Search';

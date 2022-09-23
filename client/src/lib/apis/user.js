@@ -6,8 +6,8 @@ export const getUsers = ({ page, limit }) => {
     url: USERS,
     params: {
       _page: page,
-      _limit:limit
-    }
+      _limit: limit,
+    },
   });
 };
 
@@ -24,8 +24,8 @@ export const getUserDetail = async uuid => {
   const response = await http.get({
     url: USER_SETTING,
     params: {
-      uuid: uuid
-    }
+      uuid: uuid,
+    },
   });
   const allowMarketingPush = response?.data[0]?.allow_marketing_push;
   const isActive = response?.data[0]?.is_active;
@@ -37,10 +37,19 @@ export const getUsersAccount = async userId => {
   const response = await http.get({
     url: ACCOUNTS,
     params: {
-      user_id: userId
-    }
+      user_id: userId,
+    },
   });
   const accountNumber = response.data.length;
 
   return accountNumber;
+};
+
+export const searchUsers = async enteredText => {
+  return await http.get({
+    url: USERS,
+    params: {
+      q: enteredText,
+    },
+  });
 };
